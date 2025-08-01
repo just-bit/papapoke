@@ -1,0 +1,4 @@
+[20-Mar-2025 03:18:38 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function _deprecated_file() in /home3/mqighemy/public_html/website_0f873fdf/wp-includes/class.wp-styles.php:11
+Stack trace:
+#0 {main}
+  thrown in /home3/mqighemy/public_html/website_0f873fdf/wp-includes/class.wp-styles.php on line 11

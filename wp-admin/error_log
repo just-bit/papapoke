@@ -1,0 +1,6 @@
+[19-Apr-2025 23:31:12 UTC] PHP Warning:  Undefined property: stdClass::$publish in /home3/mqighemy/public_html/website_0f873fdf/wp-content/plugins/shipping-zones-by-drawing-for-woocommerce/includes/start-args.php on line 388
+[19-Apr-2025 23:31:12 UTC] PHP Warning:  Undefined property: stdClass::$draft in /home3/mqighemy/public_html/website_0f873fdf/wp-content/plugins/shipping-zones-by-drawing-for-woocommerce/includes/start-args.php on line 388
+[19-Apr-2025 23:31:12 UTC] PHP Warning:  Undefined property: stdClass::$publish in /home3/mqighemy/public_html/website_0f873fdf/wp-content/plugins/shipping-zones-by-drawing-for-woocommerce/includes/start-args.php on line 388
+[19-Apr-2025 23:31:12 UTC] PHP Warning:  Undefined property: stdClass::$draft in /home3/mqighemy/public_html/website_0f873fdf/wp-content/plugins/shipping-zones-by-drawing-for-woocommerce/includes/start-args.php on line 388
+[19-Apr-2025 23:31:12 UTC] PHP Warning:  Undefined variable $settings in /home3/mqighemy/public_html/website_0f873fdf/wp-content/plugins/shipping-zones-by-drawing-for-woocommerce/classes/class-szbd-settings.php on line 99
+[19-Apr-2025 23:31:12 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home3/mqighemy/public_html/website_0f873fdf/wp-content/plugins/woocommerce/includes/class-wc-install.php on line 971

@@ -1,0 +1,4 @@
+[05-Mar-2025 04:41:27 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home3/mqighemy/public_html/website_0f873fdf/wp-includes/blocks/file.php:62
+Stack trace:
+#0 {main}
+  thrown in /home3/mqighemy/public_html/website_0f873fdf/wp-includes/blocks/file.php on line 62
