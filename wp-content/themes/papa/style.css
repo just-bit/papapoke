@@ -24,6 +24,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 */
 
+/* LOADER SPINNER */
+.papa-loader{width:40px;height:40px;border:4px solid #ccc;border-top-color:#c87f93;border-radius:50%;margin:20px auto;animation:papaSpin .8s linear infinite;}
+@keyframes papaSpin{to{transform:rotate(360deg);}}
+
 /* **** RESET CSS ****** */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -7657,6 +7661,13 @@ Adaptive mobile
   mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   mask-size: contain;
+}
+
+
+.menu-sec-container .papa-loader{
+ position: absolute;
+ bottom: 30px;
+ left: calc(50% - 20px);
 }
 
 

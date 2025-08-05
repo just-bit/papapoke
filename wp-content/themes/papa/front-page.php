@@ -47,13 +47,46 @@
 				  	<div class="woocommerce columns-3">
         				<ul class="products columns-3">
 				    	<?php
-		                	$ids = get_field('menu_tabs_and_item_bowls');
-		                    $args = array(
-		                        'post_type' => 'product',
-		                        'post__in' => $ids,
-		                        'posts_per_page' => 27,
-		                        'orderby' => 'post__in'
-		                        );
+		                	$ids_raw = get_field('menu_tabs_and_item_bowls');
+                            $ids_instock = array_filter( (array) $ids_raw, function($pid){
+                                return get_post_meta($pid,'_stock_status',true)==='instock';
+                            } );
+                            if(!empty($ids_instock)){
+                                $args = array(
+                                    'post_type' => 'product',
+                                    'post__in'  => $ids_instock,
+                                    'posts_per_page' => 3,
+                                    'orderby' => 'post__in',
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => '_stock_status',
+                                            'value' => 'instock',
+                                            'compare' => '='
+                                        )
+                                    )
+                                );
+                            } else {
+                                $args = array(
+                                    'post_type' => 'product',
+                                    'posts_per_page' => 3,
+                                    'orderby' => 'date',
+                                    'order'   => 'DESC',
+                                    'tax_query' => array(
+                                        array(
+                                            'taxonomy' => 'product_cat',
+                                            'field'    => 'slug',
+                                            'terms'    => 'bowls',
+                                        )
+                                    ),
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => '_stock_status',
+                                            'value' => 'instock',
+                                            'compare' => '='
+                                        )
+                                    )
+                                );
+                            }
 		                    $loop = new WP_Query( $args );
 
 		                    if ( $loop->have_posts() ) {
@@ -76,13 +109,46 @@
 				    <div class="woocommerce columns-3 ">
         				<ul class="products columns-3">
 				    	<?php
-		                	$ids = get_field('menu_tabs_and_item_rolls');
-		                    $args = array(
-		                        'post_type' => 'product',
-		                        'post__in' => $ids,
-		                        'posts_per_page' => 27,
-		                        'orderby' => 'post__in'
-		                        );
+		                	$ids_raw = get_field('menu_tabs_and_item_rolls');
+                            $ids_instock = array_filter( (array) $ids_raw, function($pid){
+                                return get_post_meta($pid,'_stock_status',true)==='instock';
+                            } );
+                            if(!empty($ids_instock)){
+                                $args = array(
+                                    'post_type' => 'product',
+                                    'post__in'  => $ids_instock,
+                                    'posts_per_page' => 3,
+                                    'orderby' => 'post__in',
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => '_stock_status',
+                                            'value' => 'instock',
+                                            'compare' => '='
+                                        )
+                                    )
+                                );
+                            } else {
+                                $args = array(
+                                    'post_type' => 'product',
+                                    'posts_per_page' => 3,
+                                    'orderby' => 'date',
+                                    'order'   => 'DESC',
+                                    'tax_query' => array(
+                                        array(
+                                            'taxonomy' => 'product_cat',
+                                            'field'    => 'slug',
+                                            'terms'    => 'rolls',
+                                        )
+                                    ),
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => '_stock_status',
+                                            'value' => 'instock',
+                                            'compare' => '='
+                                        )
+                                    )
+                                );
+                            }
 		                    $loop = new WP_Query( $args );
 
 		                    if ( $loop->have_posts() ) {
@@ -105,13 +171,46 @@
 				    <div class="woocommerce columns-3">
         				<ul class="products columns-3">
 				    	<?php
-		                	$ids = get_field('menu_tabs_and_item_extras');
-		                    $args = array(
-		                        'post_type' => 'product',
-		                        'post__in' => $ids,
-		                        'posts_per_page' => 27,
-		                        'orderby' => 'post__in'
-		                        );
+		                	$ids_raw = get_field('menu_tabs_and_item_extras');
+                            $ids_instock = array_filter( (array) $ids_raw, function($pid){
+                                return get_post_meta($pid,'_stock_status',true)==='instock';
+                            } );
+                            if(!empty($ids_instock)){
+                                $args = array(
+                                    'post_type' => 'product',
+                                    'post__in'  => $ids_instock,
+                                    'posts_per_page' => 3,
+                                    'orderby' => 'post__in',
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => '_stock_status',
+                                            'value' => 'instock',
+                                            'compare' => '='
+                                        )
+                                    )
+                                );
+                            } else {
+                                $args = array(
+                                    'post_type' => 'product',
+                                    'posts_per_page' => 3,
+                                    'orderby' => 'date',
+                                    'order'   => 'DESC',
+                                    'tax_query' => array(
+                                        array(
+                                            'taxonomy' => 'product_cat',
+                                            'field'    => 'slug',
+                                            'terms'    => 'extras',
+                                        )
+                                    ),
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => '_stock_status',
+                                            'value' => 'instock',
+                                            'compare' => '='
+                                        )
+                                    )
+                                );
+                            }
 		                    $loop = new WP_Query( $args );
 
 		                    if ( $loop->have_posts() ) {
@@ -133,13 +232,46 @@
 				    <div class="woocommerce columns-3">
         				<ul class="products columns-3">
 				    	<?php
-		                	$ids = get_field('menu_tabs_and_item_drinks');
-		                    $args = array(
-		                        'post_type' => 'product',
-		                        'post__in' => $ids,
-		                        'posts_per_page' => 27,
-		                        'orderby' => 'post__in'
-		                        );
+		                	$ids_raw = get_field('menu_tabs_and_item_drinks');
+                            $ids_instock = array_filter( (array) $ids_raw, function($pid){
+                                return get_post_meta($pid,'_stock_status',true)==='instock';
+                            } );
+                            if(!empty($ids_instock)){
+                                $args = array(
+                                    'post_type' => 'product',
+                                    'post__in'  => $ids_instock,
+                                    'posts_per_page' => 3,
+                                    'orderby' => 'post__in',
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => '_stock_status',
+                                            'value' => 'instock',
+                                            'compare' => '='
+                                        )
+                                    )
+                                );
+                            } else {
+                                $args = array(
+                                    'post_type' => 'product',
+                                    'posts_per_page' => 3,
+                                    'orderby' => 'date',
+                                    'order'   => 'DESC',
+                                    'tax_query' => array(
+                                        array(
+                                            'taxonomy' => 'product_cat',
+                                            'field'    => 'slug',
+                                            'terms'    => 'drinks',
+                                        )
+                                    ),
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => '_stock_status',
+                                            'value' => 'instock',
+                                            'compare' => '='
+                                        )
+                                    )
+                                );
+                            }
 		                    $loop = new WP_Query( $args );
 
 		                    if ( $loop->have_posts() ) {

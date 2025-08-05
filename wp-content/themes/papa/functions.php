@@ -2,7 +2,12 @@
 //Styles and scrypts
 function add_theme_scripts() {
   wp_enqueue_style( 'main-style', get_stylesheet_uri(), 11 );
-  wp_enqueue_script( 'main-js',  get_stylesheet_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true );
+  wp_enqueue_script( 'main-js',  get_stylesheet_directory_uri() . '/assets/js/main.js', array( 'jquery' ), '1.0.0', true );
+  wp_enqueue_script( 'loadmore-products', get_stylesheet_directory_uri() . '/assets/js/loadmore-products.js', array( 'jquery' ), '1.0.0', true );
+  wp_localize_script( 'loadmore-products', 'papaLoadMore', array(
+    'ajaxurl' => admin_url( 'admin-ajax.php' ),
+    'nonce'   => wp_create_nonce( 'papa_load_more_nonce' ),
+  ) );
 }
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 
@@ -345,6 +350,7 @@ function my_navigation_template( $template, $class ) {
 
 // Templates for global blocks
 require get_template_directory() . '/inc/html-parts.php';
+require get_template_directory() . '/inc/load-more-products.php';
 
 
 //move short description after product meta
