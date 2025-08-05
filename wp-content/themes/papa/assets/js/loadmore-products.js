@@ -43,6 +43,26 @@ jQuery(function($){
       if($.trim(response)){
         var $items = $(response);
         $list.append($items);
+        
+        // Destroy old popup and reinit for ALL products across ALL tabs
+        var $allTabProducts = $('.menu-sec-container .product');
+        $allTabProducts.magnificPopup('destroy');
+        $allTabProducts.magnificPopup({
+          type:'inline',
+          midClick: true,
+          gallery:{
+            enabled:true
+          },
+          delegate: 'span.wpb_wl_preview',
+          removalDelay: 500,
+          callbacks: {
+              beforeOpen: function() {
+                 this.st.mainClass = this.st.el.attr('data-effect');
+              }
+          },
+          closeOnContentClick: false,
+        });
+        
         if($items.length < batch){
           $container.data('done', true);
         }
