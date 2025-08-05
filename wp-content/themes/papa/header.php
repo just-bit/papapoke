@@ -31,11 +31,11 @@
 
     <div class="main-header-bar-wrap">
 
-      <?php 
+      <?php
                   $hdr_left_txt = get_field('info_dock_left', 'option');
                   $hdr_right_txt = get_field('info_dock_right', 'option');
                   if( $hdr_left_txt ) { ?>
-                  
+
                   <div class="header-banner-wrap">
 
                     <div class="container flex">
@@ -44,22 +44,22 @@
 
                         <?php echo $hdr_left_txt; ?>
 
-                        <img src="/wp-content/themes/papa/assets/img/star_header.svg" alt="star" height="28" width="28"> 
+                        <img src="/wp-content/themes/papa/assets/img/star_header.svg" alt="star" height="28" width="28">
 
                         <?php echo $hdr_right_txt; ?>
 
                       </marquee>
 
                     </div>
-                  
+
                   </div>
-                  
+
                   <?php }
       ?>
-      
+
 
       <div class="container flex main-menu-container">
-        
+
           <div class="header-logo">
               <?php if ( is_front_page() ) : ?>
 
@@ -69,14 +69,14 @@
 
               <?php endif; ?>
 
-                  <?php 
+                  <?php
                     $image = get_field('header_logo', 'option');
                     $size = 'full'; // (thumbnail, medium, large, full or custom size)
                     if( $image ) {
                         echo wp_get_attachment_image( $image, $size );
                     }
                   ?>
-                  
+
               <?php if ( is_front_page() ) : ?>
 
             <?php else: ?>
@@ -91,18 +91,18 @@
 
           <nav class="pc__menu">
             <?php
-              wp_nav_menu( array( 
-                  'theme_location' => 'main_menu', 
+              wp_nav_menu( array(
+                  'theme_location' => 'main_menu',
                   'container_class' => 'main-menu',
                   'container' => 'nav'
-                  ) ); 
+                  ) );
              ?>
           </nav>
 
-        
+
 
         <div class="main-account-cont">
-          
+
 <!--           <div class="main-header-profile">
             <a href="/my-account/"><img src="/wp-content/themes/safe/assets/img/profile.svg" alt="profile"  class="header-profile-img" width="30" height="30"></a>
           </div> -->
@@ -136,7 +136,7 @@
 
               <?php endif; ?>
 
-                  <?php 
+                  <?php
                     $image = get_field('header_logo', 'option');
                     $size = 'full'; // (thumbnail, medium, large, full or custom size)
                     if( $image ) {
@@ -155,13 +155,16 @@
 
         <nav class="pc__menu">
           <?php
-            wp_nav_menu( array( 
-                'theme_location' => 'main_menu', 
+            wp_nav_menu( array(
+                'theme_location' => 'main_menu',
                 'container_class' => 'main-menu',
                 'container' => 'nav'
-                ) ); 
+                ) );
            ?>
         </nav>
+	      <div class="main-header-cart main-header-cart-pc">
+            <?php echo do_shortcode("[woo_cart_but]"); ?>
+	      </div>
 
         <div class="mob__menu">
 
@@ -175,17 +178,17 @@
         </div>
 
         <div class="main-account-cont">
-          
+
 <!--           <div class="main-header-profile">
             <a href="/my-account/"><img src="/wp-content/themes/safe/assets/img/profile.svg" alt="profile" width="30" height="30"></a>
           </div> -->
 
-          
+
         </div>
 
       </div>
 
-      
+
 
 
     </div>
@@ -194,23 +197,23 @@
       <div class="overlay overlay-slidedown">
 
         <div class="container flex submenu-info">
-          
+
           <div class="header-logo">
-            
+
           </div>
 
           <button type="button" class="overlay-close"><span class="overlay-close-ico"></span></button>
 
         </div>
-        
+
         <div class="container mob-menu-menulist">
           <nav class="mobile__menu">
               <?php
-                wp_nav_menu( array( 
-                    'theme_location' => 'main_menu', 
+                wp_nav_menu( array(
+                    'theme_location' => 'main_menu',
                     'container_class' => 'main-menu',
                     'container' => 'nav'
-                    ) ); 
+                    ) );
                ?>
             </nav>
         </div>
@@ -221,11 +224,11 @@
 
             $mobile_contact_logo_1 = get_field('mobile_contact_logo_1', 'option');
             $size_ico = 'full';
-            
+
             if ($mobile_contact_logo_1) { ?>
             <!-- tg link 1 -->
             <div class="mob-menu-tg">
-              
+
               <img src="<?php the_field('mobile_contact_logo_1', 'option'); ?>" alt="<?php the_field('mobile_contact_text_1', 'option'); ?>" width="34" height="36">
 
               <p><?php the_field('mobile_contact_text_1', 'option'); ?></p>
@@ -244,7 +247,7 @@
 
           <!-- tg link 2 -->
           <div class="mob-menu-tg">
-            
+
             <img src="<?php the_field('mobile_contact_logo_2', 'option'); ?>" alt="<?php the_field('mobile_contact_text_2', 'option'); ?>" width="34" height="36">
 
             <p><?php the_field('mobile_contact_text_2', 'option'); ?></p>
@@ -263,7 +266,7 @@
 
           <!-- tg link 3 -->
           <div class="mob-menu-tg">
-            
+
             <img src="<?php the_field('mobile_contact_logo_3', 'option'); ?>" alt="<?php the_field('mobile_contact_text_3', 'option'); ?>" width="34" height="36">
 
             <p><?php the_field('mobile_contact_text_3', 'option'); ?></p>
@@ -282,3 +285,14 @@
   </header>
 
 <!-- header content end -->
+
+<div class="fixed-contacts">
+	<ul>
+		<li>
+			<a href="#" class="instagram" target="_blank" rel="nofollow" aria-label="instagram"></a>
+		</li>
+		<li>
+			<a href="#" class="facebook" target="_blank" rel="nofollow" aria-label="facebook"></a>
+		</li>
+	</ul>
+</div>

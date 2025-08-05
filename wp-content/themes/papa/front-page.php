@@ -5,16 +5,18 @@
 <!-- Banner -->
 
 <section class="home-banner">
-	
+
 	<div class="container flex home-banner-cont">
 
 		<div class="home-banner-cont-left">
 			<h1><?php the_field('heading_h1'); ?></h1>
-			<p><?php the_field('heading_text'); ?></p>
-			<a href="#menu" class="action-button"><span class="btn-star"></span> TRY IT <span class="btn-star"></span> TRY IT <span class="btn-star"></span> TRY IT <span class="btn-star"></span></a>
-			
+				<div class="home-banner-cont-left-text">
+            <?php the_field('heading_text'); ?>
+				</div>
+			<a href="#menu" class="action-button" data-target="extras"><span class="btn-star"></span> TRY IT <span class="btn-star"></span> TRY IT <span class="btn-star"></span> TRY IT <span class="btn-star"></span></a>
+
 		</div>
-		
+
 		<div class="home-banner-cont-right">
 			<img src="<?php the_field('heading_bowl_photo'); ?>" alt="adress" class="hp-bowl">
 		</div>
@@ -27,8 +29,9 @@
 <section class="menu-sec" id="menu">
 
 	<div class="container">
-
-		<h2><?php the_field('menu_heading'); ?></h2>
+<?php if (!empty(get_field('menu_heading'))): ?>
+	<h2><?php the_field('menu_heading'); ?></h2>
+<?php endif; ?>
 
 		<div class="menu-sec-tabs">
 
@@ -38,9 +41,9 @@
 				    <button class="menu-sec-item menu-sec-button-extras tabbtn" onclick="openCity(event,'extras')">Extras</button>
 				    <button class="menu-sec-item menu-sec-button-drinks tabbtn" onclick="openCity(event,'drinks')">Drinks</button>
 				  </div>
-				  
+
 				  <div id="bowls" class="menu-sec-container menu-sec-border papabowls">
-				    
+
 				  	<div class="woocommerce columns-3">
         				<ul class="products columns-3">
 				    	<?php
@@ -52,7 +55,7 @@
 		                        'orderby' => 'post__in'
 		                        );
 		                    $loop = new WP_Query( $args );
-		                    
+
 		                    if ( $loop->have_posts() ) {
 
 		                        while ( $loop->have_posts() ) : $loop->the_post();
@@ -81,7 +84,7 @@
 		                        'orderby' => 'post__in'
 		                        );
 		                    $loop = new WP_Query( $args );
-		                    
+
 		                    if ( $loop->have_posts() ) {
 
 		                        while ( $loop->have_posts() ) : $loop->the_post();
@@ -110,7 +113,7 @@
 		                        'orderby' => 'post__in'
 		                        );
 		                    $loop = new WP_Query( $args );
-		                    
+
 		                    if ( $loop->have_posts() ) {
 
 		                        while ( $loop->have_posts() ) : $loop->the_post();
@@ -138,7 +141,7 @@
 		                        'orderby' => 'post__in'
 		                        );
 		                    $loop = new WP_Query( $args );
-		                    
+
 		                    if ( $loop->have_posts() ) {
 
 		                        while ( $loop->have_posts() ) : $loop->the_post();
@@ -158,9 +161,9 @@
 				</div>
 
 		</div>
-		
+
 	</div>
-	
+
 </section>
 
 <!-- Contacts -->
@@ -168,12 +171,12 @@
 <section class="contact-sec" id="contacts">
 
 	<div class="container">
-		<h2 class="contact-sec-h2">CONTACTS</h2>
+		<h2 class="contact-sec-h2">CONTACT US</h2>
 
 		<div class="flex contact-info">
-			
+
 			<div class="contact-info-item">
-				<img src="<?php the_field('contacts_icon1'); ?>" alt="adress">	
+				<img src="<?php the_field('contacts_icon1'); ?>" alt="adress">
 				<div><?php the_field('contact_info_1'); ?></div>
 			</div>
 
@@ -192,23 +195,23 @@
 		<div class="flex contacts-check-map" id="postcheck">
 
 			<div class="contacts-check-map-left">
-				<!-- <img src="<?php the_field('contact_img'); ?>" alt="map"> -->
+<!--				<img src="--><?php //the_field('contact_img'); ?><!--" alt="map">-->
 				<?php echo do_shortcode('[szbd ids="154" color="#c87f93"]'); ?>
 			</div>
 
 			<div class="contacts-check-map-right">
 				<h2><?php the_field('contact_heading_right'); ?></h2>
 				<p><?php the_field('contact_check_area'); ?></p>
-				
+
 				<div class="contacts-check-map-find-me">
 					<?php echo do_shortcode('[wpc_pincode_checker]'); ?>
 				</div>
 
 			</div>
-			
+
 		</div>
 		</div>
-		
+
 		<div class="container">
 			<div class="flex contacts-delivery-method">
 
@@ -220,8 +223,8 @@
 				<div class="flex contacts-delivery-method-right">
 
 					<?php if( have_rows('contact_delivery_methods') ): ?>
-					    
-					    <?php while( have_rows('contact_delivery_methods') ): the_row(); 
+
+					    <?php while( have_rows('contact_delivery_methods') ): the_row();
 					        $deliv_image = get_sub_field('delivery_logo');
 					        $deliv_text = get_sub_field('delivery_text_button');
 					        $deliv_link = get_sub_field('delivery_link_button');
@@ -231,12 +234,12 @@
 					            <a href="<?php echo $deliv_link; ?>" target="_blank"><?php echo $deliv_text; ?></a>
 					        </div>
 					    <?php endwhile; ?>
-					    
+
 					<?php endif; ?>
 
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 
@@ -244,15 +247,15 @@
 
 <!-- About us -->
 <section class="team-sec" id="story">
-	
+
 	<div class="container team-sec-up">
 
 		<div class="team-sec-up-wrap">
-		
+
 			<h2><?php the_field('about_us_heading'); ?></h2>
 
 			<div class="flex team-sec-up-text">
-				
+
 				<p><?php the_field('about_us_left_text'); ?></p>
 				<p><?php the_field('about_us_right_text'); ?></p>
 
@@ -270,9 +273,9 @@
 			<h2><?php the_field('about_us_heading2'); ?></h2>
 			<p><?php the_field('about_us_text'); ?></p>
 		</div>
-		
+
 	</div>
 
-</section>	
+</section>
 
 <?php get_footer(); ?>

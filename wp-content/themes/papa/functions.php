@@ -139,9 +139,9 @@ function woo_cart_but_count( $fragments ) {
     $cart_count = WC()->cart->cart_contents_count;
     // $cart_url = wc_get_cart_url();
     $cart_url = wc_get_checkout_url();
-    
+
     ?>
-    <a class="cart-contents menu-item" href="<?php echo $cart_url; ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+    <a class="cart-contents<?= $cart_count == 0 ? ' cart-contents-empty' : '' ?> menu-item" href="<?php echo $cart_url; ?>" title="<?php _e( 'View your shopping cart' ); ?>">
     <?php
     if ( $cart_count > 0 ) {
         ?>
@@ -644,20 +644,38 @@ add_action( 'woocommerce_after_shop_loop_item_title', 'tutsplus_excerpt_in_produ
 /**
 * Add type of product before image in loop
 */
+// add_action( 'woocommerce_after_shop_loop_item_title', 'badge_new_acf', 2 );
+// function badge_new_acf(){
+//     global $product;
+
+//     $product_new_type = get_field_object('product_type');
+//     $product_new_type_value = $product_new_type['value'];
+
+//     if( $product_new_type && in_array('showblock', $product_new_type) ) {
+//        echo '<div class="product-type-img"><img src=';
+//        echo $product_new_type['value'];
+//        echo ' alt="product type image">';
+//        echo '</div>';
+//      }
+
+// }
+
 add_action( 'woocommerce_after_shop_loop_item_title', 'badge_new_acf', 2 );
 function badge_new_acf(){
     global $product;
 
     $product_new_type = get_field_object('product_type');
-    $product_new_type_value = $product_new_type['value'];
+    
+    if( $product_new_type && is_array($product_new_type) ) {
+        $product_new_type_value = $product_new_type['value'];
 
-    if( $product_new_type && in_array('showblock', $product_new_type) ) {
-       echo '<div class="product-type-img"><img src=';
-       echo $product_new_type['value'];
-       echo ' alt="product type image">';
-       echo '</div>';
-     }
-
+        if( $product_new_type_value && in_array('showblock', $product_new_type) ) {
+           echo '<div class="product-type-img"><img src=';
+           echo $product_new_type_value;
+           echo ' alt="product type image">';
+           echo '</div>';
+         }
+    }
 }
 
 /**
