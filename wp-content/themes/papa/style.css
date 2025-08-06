@@ -1848,7 +1848,11 @@ a.add_to_cart_button {
 }
 
 .contacts-check-map {
-    border: 3px solid #3E6352;
+    /*border-top: 3px solid #3E6352;*/
+  border: 3px solid #3E6352;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .contacts-check-map-left {

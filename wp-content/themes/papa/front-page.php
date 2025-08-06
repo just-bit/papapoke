@@ -326,20 +326,20 @@
 
 		<div class="flex contacts-check-map" id="postcheck">
 
-			<div class="contacts-check-map-left">
-<!--				<img src="--><?php //the_field('contact_img'); ?><!--" alt="map">-->
-				<?php echo do_shortcode('[szbd ids="154" color="#c87f93"]'); ?>
-			</div>
+			<!--<div class="contacts-check-map-left">
+		<img src="--><?php /*//the_field('contact_img'); */?><!--" alt="map">
+				<?php /*echo do_shortcode('[szbd ids="154" color="#c87f93"]'); */?>
+			</div>-->
 
-			<div class="contacts-check-map-right">
-				<h2><?php the_field('contact_heading_right'); ?></h2>
-				<p><?php the_field('contact_check_area'); ?></p>
+		<!--	<div class="contacts-check-map-right">
+				<h2><?php /*the_field('contact_heading_right'); */?></h2>
+				<p><?php /*the_field('contact_check_area'); */?></p>
 
 				<div class="contacts-check-map-find-me">
-					<?php echo do_shortcode('[wpc_pincode_checker]'); ?>
+					<?php /*echo do_shortcode('[wpc_pincode_checker]'); */?>
 				</div>
 
-			</div>
+			</div>-->
 
 		</div>
 		</div>
