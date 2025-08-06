@@ -2045,7 +2045,6 @@ div#my_custom_checkout_field, .wc-delivery-time-response {
     padding-top: 0;
 }
 
-
 .contacts-delivery-method-left, .contacts-delivery-method-right {
     width: 50%;
 }
@@ -2056,7 +2055,9 @@ div#my_custom_checkout_field, .wc-delivery-time-response {
 
 .contacts-delivery-method-right {
     display: flex;
-    justify-content: space-between;
+    gap: 50px;
+    /*justify-content: space-between;*/
+    justify-content: flex-end;
     padding-left: 45px;
 }
 
