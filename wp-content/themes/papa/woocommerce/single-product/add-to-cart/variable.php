@@ -31,18 +31,17 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
 		<p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
 	<?php else : ?>
-		<table class="variations" cellspacing="0">
+<!--		<table class="variations" cellspacing="0">
 			<tbody>
-				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
+				<?php /*foreach ( $attributes as $attribute_name => $options ) : */?>
 					<tr>
 						<tr>
-							<td class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label></td>
+							<td class="label"><label for="<?php /*echo esc_attr( sanitize_title( $attribute_name ) ); */?>"><?php /*echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. */?></label></td>
 						</tr>
-
 						<tr>
 						<td class="value">
 							<?php
-								wc_dropdown_variation_attribute_options(
+/*								wc_dropdown_variation_attribute_options(
 									array(
 										'options'   => $options,
 										'attribute' => $attribute_name,
@@ -50,13 +49,50 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 									)
 								);
 								echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
-							?>
+							*/?>
 						</td>
 						</tr>
 					</tr>
-				<?php endforeach; ?>
+				<?php /*endforeach; */?>
 			</tbody>
-		</table>
+		</table>-->
+
+
+	<div class="additives">
+		<div class="additives-title">Добавки 1</div>
+		<ul class="additives-list">
+			<li class="additives-item">
+				<input class="additive-input" id="additive-item-1" type="checkbox" name="additive">
+				<label class="additive-label" for="additive-item-1">Crispy Shallots (+£1.00)</label>
+			</li>
+			<li class="additives-item">
+				<input class="additive-input" id="additive-item-2" type="checkbox" name="additive">
+				<label class="additive-label" for="additive-item-2">Ginger (+£1.00)</label>
+			</li>
+			<li class="additives-item">
+				<input class="additive-input" id="additive-item-3" type="checkbox" name="additive">
+				<label class="additive-label" for="additive-item-3">Crispy Shallots (+£1.00)</label>
+			</li>
+		</ul>
+	</div>
+		<div class="additives">
+			<div class="additives-title">Добавки 2</div>
+			<ul class="additives-list">
+				<li class="additives-item">
+					<input class="additive-input" id="additive-item-2-1" type="checkbox" name="additive">
+					<label class="additive-label" for="additive-item-2-1">Crispy Shallots (+£1.00)</label>
+				</li>
+				<li class="additives-item">
+					<input class="additive-input" id="additive-item-2-2" type="checkbox" name="additive">
+					<label class="additive-label" for="additive-item-2-2">Ginger (+£1.00)</label>
+				</li>
+				<li class="additives-item">
+					<input class="additive-input" id="additive-item-2-3" type="checkbox" name="additive">
+					<label class="additive-label" for="additive-item-2-3">Crispy Shallots (+£1.00)</label>
+				</li>
+			</ul>
+		</div>
+
 
 		<div class="single_variation_wrap">
 			<?php
